@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/quiz_system
+    url: jdbc:postgresql://localhost:5432/poll_system_db
     username: postgres
     password: christopher
     driver-class-name: org.postgresql.Driver
