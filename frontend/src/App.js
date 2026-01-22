@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Quiz from './components/Quiz';
-import Admin from './components/Admin';
+import PollList from './components/PollList';
+import AdminPanel from './components/AdminPanel';
 import './App.css';
 
 function App() {
@@ -9,16 +9,16 @@ function App() {
     <Router>
       <div className="App">
         <header>
-          <h1>Quiz Management System</h1>
+          <h1>Poll System</h1>
           <nav className="navigation">
-            <Link to="/">Take Quiz</Link>
+            <Link to="/">Vote in Polls</Link>
             <Link to="/admin">Admin Panel</Link>
           </nav>
         </header>
         <main>
           <Routes>
-            <Route path="/" element={<Quiz />} />
-            <Route path="/admin" element={<Admin />} />
+            <Route path="/" element={<PollList />} />
+            <Route path="/admin" element={<AdminPanel />} />
           </Routes>
         </main>
       </div>
