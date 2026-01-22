@@ -6,10 +6,10 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @EnableScheduling
-public class QuizSystemApplication {
+public class PollSystemApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(QuizSystemApplication.class, args);
+		SpringApplication.run(PollSystemApplication.class, args);
 	}
 
 }
