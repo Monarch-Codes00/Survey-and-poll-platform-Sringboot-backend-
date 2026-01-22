@@ -1,9 +1,16 @@
-CREATE TABLE IF NOT EXISTS question (
+CREATE TABLE IF NOT EXISTS poll (
     id BIGSERIAL PRIMARY KEY,
-    question_text VARCHAR(500) NOT NULL,
-    option1 VARCHAR(255) NOT NULL,
-    option2 VARCHAR(255) NOT NULL,
-    option3 VARCHAR(255) NOT NULL,
-    option4 VARCHAR(255) NOT NULL,
-    correct_option INTEGER NOT NULL CHECK (correct_option BETWEEN 1 AND 4)
+    question VARCHAR(500) NOT NULL,
+    options VARCHAR(500) NOT NULL,
+    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    is_active BOOLEAN DEFAULT TRUE
+);
+
+CREATE TABLE IF NOT EXISTS vote (
+    id BIGSERIAL PRIMARY KEY,
+    poll_id BIGINT NOT NULL,
+    selected_option VARCHAR(255) NOT NULL,
+    voted_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ip_address VARCHAR(45),
+    FOREIGN KEY (poll_id) REFERENCES poll(id)
 );
