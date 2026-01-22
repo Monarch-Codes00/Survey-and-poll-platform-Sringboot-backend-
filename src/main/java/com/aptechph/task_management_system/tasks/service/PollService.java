@@ -61,7 +61,7 @@ public class PollService {
                 .filter(poll -> poll.getCreatedDate().isBefore(thirtyDaysAgo))
                 .collect(Collectors.toList());
         for (Poll poll : oldPolls) {
-            poll.setIsActive(false);
+            poll.setActive(false);
             pollRepository.save(poll);
         }
     }
