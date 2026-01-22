@@ -1,33 +1,55 @@
 .App {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  color: #333;
+}
+
+header {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  margin: 0;
+  color: #000;
+  font-size: 2rem;
   text-align: center;
-}
-
-.App header {
-  background-color: #282c34;
-  padding: 20px;
-  color: white;
-}
-
-.App header h1 {
-  margin: 0 0 10px 0;
 }
 
 .navigation {
-  text-align: center;
-  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
 }
 
 .navigation a {
-  margin: 0 15px;
+  color: #000;
   text-decoration: none;
-  color: #61dafb;
-  font-weight: bold;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
 }
 
 .navigation a:hover {
-  text-decoration: underline;
+  background-color: #f0f0f0;
 }
 
 main {
-  padding: 20px;
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
 }
