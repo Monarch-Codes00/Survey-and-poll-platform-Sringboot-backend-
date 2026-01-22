@@ -53,4 +53,16 @@ public class PollService {
     public Poll getPollById(Long id) {
         return pollRepository.findById(id).orElse(null);
     }
+
+    @Scheduled(cron = "0 0 0 * * ?") // Daily at midnight
+    public void archiveOldPolls() {
+        LocalDateTime thirtyDaysAgo = LocalDateTime.now().minusDays(30);
+        List<Poll> oldPolls = pollRepository.findAll().stream()
+                .filter(poll -> poll.getCreatedDate().isBefore(thirtyDaysAgo))
+                .collect(Collectors.toList());
+        for (Poll poll : oldPolls) {
+            poll.setIsActive(false);
+            pollRepository.save(poll);
+        }
+    }
 }
