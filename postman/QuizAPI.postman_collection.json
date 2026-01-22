@@ -1,0 +1,341 @@
+{
+  "info": {
+    "name": "Quiz Management System API",
+    "_postman_id": "quiz-api-collection-2026",
+    "description": "Complete Postman collection for testing the Quiz Management System backend API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Admin Endpoints",
+      "item": [
+        {
+          "name": "Get All Questions (Admin)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/quiz/admin/questions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "quiz",
+                "admin",
+                "questions"
+              ]
+            },
+            "description": "Retrieve all questions from the database (Admin only)"
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/quiz/admin/questions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "quiz",
+                    "admin",
+                    "questions"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n  {\n    \"id\": 1,\n    \"questionText\": \"What is the capital of France?\",\n    \"option1\": \"London\",\n    \"option2\": \"Paris\",\n    \"option3\": \"Berlin\",\n    \"option4\": \"Madrid\"\n  },\n  {\n    \"id\": 2,\n    \"questionText\": \"Which planet is known as the Red Planet?\",\n    \"option1\": \"Venus\",\n    \"option2\": \"Mars\",\n    \"option3\": \"Jupiter\",\n    \"option4\": \"Saturn\"\n  }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Add New Question (Admin)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"questionText\": \"What is the largest planet in our solar system?\",\n  \"option1\": \"Earth\",\n  \"option2\": \"Mars\",\n  \"option3\": \"Jupiter\",\n  \"option4\": \"Saturn\",\n  \"correctOption\": 3\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/quiz/admin/questions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "quiz",
+                "admin",
+                "questions"
+              ]
+            },
+            "description": "Add a new question to the database (Admin only). correctOption should be 1-4 corresponding to option1-option4."
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"questionText\": \"What is the largest planet in our solar system?\",\n  \"option1\": \"Earth\",\n  \"option2\": \"Mars\",\n  \"option3\": \"Jupiter\",\n  \"option4\": \"Saturn\",\n  \"correctOption\": 3\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/quiz/admin/questions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "quiz",
+                    "admin",
+                    "questions"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"id\": 3,\n  \"questionText\": \"What is the largest planet in our solar system?\",\n  \"option1\": \"Earth\",\n  \"option2\": \"Mars\",\n  \"option3\": \"Jupiter\",\n  \"option4\": \"Saturn\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Question (Admin)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/quiz/admin/questions/{{questionId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "quiz",
+                "admin",
+                "questions",
+                "{{questionId}}"
+              ]
+            },
+            "description": "Delete a question by ID (Admin only). Replace {{questionId}} with the actual question ID."
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/quiz/admin/questions/1",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "quiz",
+                    "admin",
+                    "questions",
+                    "1"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "body": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "User Endpoints",
+      "item": [
+        {
+          "name": "Get Quiz Questions (User)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/quiz/questions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "quiz",
+                "questions"
+              ]
+            },
+            "description": "Get all questions for taking the quiz (User endpoint)"
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/quiz/questions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "quiz",
+                    "questions"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n  {\n    \"id\": 1,\n    \"questionText\": \"What is the capital of France?\",\n    \"option1\": \"London\",\n    \"option2\": \"Paris\",\n    \"option3\": \"Berlin\",\n    \"option4\": \"Madrid\"\n  },\n  {\n    \"id\": 2,\n    \"questionText\": \"Which planet is known as the Red Planet?\",\n    \"option1\": \"Venus\",\n    \"option2\": \"Mars\",\n    \"option3\": \"Jupiter\",\n    \"option4\": \"Saturn\"\n  }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Submit Quiz Answers (User)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"answers\": [\n    {\n      \"questionId\": 1,\n      \"selectedOption\": 2\n    },\n    {\n      \"questionId\": 2,\n      \"selectedOption\": 2\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/quiz/submit",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "quiz",
+                "submit"
+              ]
+            },
+            "description": "Submit quiz answers. selectedOption should be 1-4 corresponding to the chosen option. questionId should match the question IDs from the quiz."
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"answers\": [\n    {\n      \"questionId\": 1,\n      \"selectedOption\": 2\n    },\n    {\n      \"questionId\": 2,\n      \"selectedOption\": 2\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/quiz/submit",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "quiz",
+                    "submit"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"score\": 2,\n  \"totalQuestions\": 2\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
+    },
+    {
+      "key": "questionId",
+      "value": "1",
+      "type": "string"
+    }
+  ]
+}
