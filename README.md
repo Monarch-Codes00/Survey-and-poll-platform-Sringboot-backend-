@@ -1,3 +1,6 @@
+# Survey-and-poll-platform-Sringboot-backend-
+>>>>>>> e0ef5e5cc9ee619c05e95a33ade1ff0452be6368
+=======
 # Quiz Management System
 
 This project contains both backend (Spring Boot) and frontend (React) components for a quiz management system.
@@ -79,3 +82,6 @@ task-management-system-java/
 ├── mvnw              # Maven wrapper
 └── README.md         # This file
 ```
+=======
+# Survey-and-poll-platform-Sringboot-backend-
+>>>>>>> e0ef5e5cc9ee619c05e95a33ade1ff0452be6368
