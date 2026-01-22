@@ -1,4 +1,4 @@
-ippackage com.aptechph.task_management_system.tasks.dto;
+package com.aptechph.task_management_system.tasks.dto;
 
 public class PollRequestDto {
     private String question;
